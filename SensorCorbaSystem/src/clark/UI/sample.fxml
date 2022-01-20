@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="fxMainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clark.controllers.ServerUIController">
+   <top>
+      <MenuBar prefHeight="29.0" prefWidth="858.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <GridPane prefHeight="375.0" prefWidth="157.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="144.0" minHeight="0.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="395.0" minHeight="10.0" prefHeight="393.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="296.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TreeView fx:id="fxTreeView" onMouseClicked="#onTreeClick" prefHeight="361.0" prefWidth="157.0" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="154.0" text=" Server List" textAlignment="CENTER" />
+         </children>
+      </GridPane>
+   </left>
+   <right>
+      <GridPane prefHeight="445.0" prefWidth="294.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="144.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="297.0" minHeight="7.0" prefHeight="8.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="379.0" minHeight="10.0" prefHeight="378.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#disableNode" text="Toggle Sensor" GridPane.rowIndex="1" />
+            <Label text=" Tools:" />
+            <ListView fx:id="fxAlertList" prefHeight="379.0" prefWidth="188.0" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </right>
+   <center>
+      <TableView fx:id="fxTableView" prefHeight="445.0" prefWidth="443.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

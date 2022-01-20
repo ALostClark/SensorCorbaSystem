@@ -1,0 +1,45 @@
+// Example of a "relay" - a client and server.
+// Uses the old favourite Hello World as a basis.
+
+module clark {
+    module corba {
+
+        struct Entry {
+            long long timestamp;
+            string location;
+            double value;
+         };
+
+        exception InactiveStationException {
+            string reason;
+        };
+
+        interface MonitorStation {
+            double get_value() raises(InactiveStationException);
+            string get_location() raises(InactiveStationException);
+
+            boolean get_status();
+            void set_status(in boolean status);
+        };
+
+        typedef sequence<Entry> EntryList;
+        typedef sequence<string> MonitorList;
+
+        interface LocalControlStation {
+            void register(in string location);
+            void unregister(in string location);
+            string get_location();
+            void report_value(in string location, in double value);
+            EntryList get_logs();
+            MonitorList get_stations();
+        };
+
+        interface CentralServer {
+            void register(in string location);
+            void unregister(in string location);
+            void raise_alarm(in string monitor_station);
+            string get_location();
+        };
+
+    };
+};
